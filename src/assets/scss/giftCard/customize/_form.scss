@@ -1,0 +1,76 @@
+// The form
+#{$baseClass}__form {
+    display:block;
+
+    padding-left:20px;
+    padding-right:20px;
+
+    counter-reset:section;  // For step numbers
+}
+
+// Step sections
+#{$baseClass}__section {
+    padding-bottom:50px;
+
+    border-bottom:1px solid darken(map-get($colors, white), 10%);
+
+    // Turn into flex container
+    &-flex {
+        display:flex;
+    }
+
+    // Title/legend
+    &-title {
+        padding-top:50px;
+        padding-bottom:10px;
+        margin-bottom:5px;
+
+        color:map-get($colors, blue);
+        font-size:1.5rem;
+
+        &::before {
+            counter-increment:section;
+            content:counter(section);
+
+            position:relative;
+            top:-2px;
+
+            display:inline-block;
+
+            width:40px;
+            height:40px;
+            margin-right:10px;
+
+            color:map-get($colors, white);
+            font-size:1.25rem;
+            font-weight:bold;
+            line-height:39px;
+            text-align:center;
+
+            border-radius:50%;
+            background-color:map-get($colors, blue);
+        }
+    }
+
+    // Input fields
+    &-input {
+        height:60px;
+        margin-bottom:0;
+
+        font-size:1.25rem;
+
+        &:required {
+            box-shadow:none;
+        }
+    }
+
+    // Error messages
+    &-error {
+        display:block;
+
+        margin-top:5px;
+        margin-bottom:5px;
+
+        color:red;
+    }
+}

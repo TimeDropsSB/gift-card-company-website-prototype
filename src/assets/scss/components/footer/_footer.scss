@@ -1,0 +1,126 @@
+/** 
+ * Footer
+ */
+#{$baseClass} {
+    // Mixin link styles
+    @mixin link-styles($color) {
+        color:$color;
+
+        transition:color 0.25s ease-out;
+
+        &:hover {
+            color:map-get($colors, blue);
+        }
+    }
+
+    padding-top:40px;
+
+    color:map-get($colors, white);
+    text-align:center;
+
+    background-color:map-get($colors, dark-blue);
+
+    // Center the items
+    .row {
+        align-items:center;
+        justify-content:center;
+    }
+
+    &__nav,
+    &__info,
+    &__copyright {
+        padding-left:20px;
+        padding-right:20px;
+    }   
+
+    // Navigation
+    &__nav {
+        margin-bottom:20px;
+
+        &-menu {
+            flex-shrink:1;  // Overwrite IE's incorrect default
+
+            &-item {
+                padding-left:10px;
+                padding-right:10px;
+
+                // Space out the navigation links a bit more
+                #{$baseClass}__nav--site & {
+                    padding-left:20px;
+                    padding-right:20px;
+                }
+
+                // Small-: Add more bottom spacing between links
+                @media #{mq(max-small)} {
+                    margin-bottom:10px;
+                }
+            }
+
+            &-link {
+                @include link-styles(inherit);
+
+                &-icon {
+                    width:40px;
+                    height:40px;
+
+                    line-height:40px;
+
+                    border-radius:50%;
+                    background-color:map-get($colors, blue);
+
+                    transition:background-color 0.25s ease-out;
+                }
+
+                &:hover &-icon {
+                    background-color:map-get($colors, white);
+                }
+            }
+        }
+    }
+
+    // Company info
+    &__info {
+        display:block;
+
+        font-size:0.9rem;
+        color:darken(map-get($colors, white), 20%);
+
+        &-details {
+            display:block;
+
+            color:inherit;
+
+            &--email {
+                @include link-styles(inherit);
+            }
+        }
+    }
+
+    // Copyright info
+    &__copyright {
+        margin-top:20px;
+        padding-top:20px;
+        padding-bottom:20px;
+
+        background-color:map-get($colors, alt-blue);
+
+        &-message,
+        &-link {
+            // Small-: Turn to stack 
+            @media #{mq(max-small)} {
+                display:block;
+            }
+        }
+
+        &-link {
+            @include link-styles(darken(map-get($colors, white), 20%));
+
+            &::before {
+                // Medium+: Horizontal and separate by a dot
+                @media #{mq(min-medium)} {
+                    content:" • ";
+                }
+            }
+        }
+    }
+}

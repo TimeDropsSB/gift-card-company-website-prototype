@@ -1,0 +1,89 @@
+// General section styles
+#{$baseClass}__section {
+    padding-top:100px;
+    padding-bottom:100px;
+    padding-left:20px;
+    padding-right:20px;
+
+    &--bgBlue {
+        color:#FFF;
+
+        background-color:map-get($colors, blue);
+    }
+
+    & > .row {
+        justify-content:center;
+
+        text-align:center;
+
+        // Large+: Set blocks side-by-side, left align text
+        @media #{mq(min-large)} {
+            flex-wrap:nowrap;
+            align-items:center;
+            justify-content:space-between;
+            
+            text-align:left;
+        }
+    }
+
+    &--rtl > .row {
+        // Large+: Right-to-left, right-align the text
+        @media #{mq(min-large)} {
+            text-align:right;
+        }
+    }
+
+    // Wrappers
+    &-textWrap,
+    &-imgWrap {
+        flex:0 1 100%; 
+    }
+
+    &-textWrap {
+        // Large+: For right-to-left, set the text wrap on the right
+        @media #{mq(min-large)} {
+            #{$baseClass}__section--rtl &{
+                order:1;
+            }
+        }
+    }
+
+    &-imgWrap {
+        flex-shrink:0;
+
+        max-width:500px;
+
+        // Large+: Set a left margin for extra space
+        @media #{mq(min-large)} {
+            margin-left:30px;
+        }
+
+        // For right-to-left
+        #{$baseClass}__section--rtl & {
+            // Large+: set the img wrap on the left
+            @media #{mq(min-large)} {
+                order:0;
+
+                margin-left:0;
+                margin-right:30px;
+            }  
+        }
+    }
+
+    // Section title
+    &-title {
+        margin-bottom:15px;
+
+        font-size:2.5rem;
+        font-weight:bold;
+    }
+
+    // Image
+    &-img {
+        width:100%;
+    }
+
+    &-btn {
+
+    }
+}

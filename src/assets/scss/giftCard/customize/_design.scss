@@ -1,0 +1,77 @@
+// Design step
+#{$baseClass}__design {
+    // Options container
+    &-options {
+        display:flex;
+
+        // XMedium-: Make the design options horizontal on one line
+        // In the real version: Find a way to do this so that the horizontal scrollbar is not shown
+        @media #{mq(max-xmedium)} {
+            white-space:nowrap;
+            overflow-x:auto;
+        }
+
+        // Large+: Display all options at once
+        @media #{mq(min-large)} {
+            flex-wrap:wrap;
+        }
+    }
+
+    // A design option
+    &-option {
+        position:relative;
+
+        flex-shrink:0;
+        flex-basis:200px;
+
+        margin-bottom:5px;
+        margin-right:5px;
+
+        border:1px solid transparent;
+
+        cursor:pointer;
+
+        @media #{mq(min-medium)} {
+            flex-basis:auto;
+        }
+
+        // Large+: Adjust for container
+        @media #{mq(min-large)} {
+            flex-basis:calc(25% - 5px);
+
+            @media #{mq(ie)} {
+                width:calc(25% - 5px);
+            }
+        }
+
+        &::before {
+            @extend %abs-full-screen;
+
+            content:" ";
+
+            visibility:hidden;
+
+            transition:background-color 0.25s, visibility 0.25s;
+        }
+
+        &:hover,
+        &--selected {
+            &::before {
+                visibility:visible;
+
+                background-color:fade-out(map-get($colors, white), 0.35);
+            }
+        }
+
+        // The option's image design
+        &-img {
+            width:100%;
+        }
+
+        // The option's radio button (behind the image)
+        &-input {
+            position:absolute;
+            z-index:-1;
+        }
+    }
+}

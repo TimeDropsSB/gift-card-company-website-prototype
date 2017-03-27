@@ -1,0 +1,52 @@
+// Hero section
+#{$baseClass}__hero {
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+    flex-wrap:wrap;
+
+    min-height:100vh;
+    
+    color:map-get($colors, white);
+    text-align:center;
+
+    background-color:map-get($colors, light-blue);
+    background-image:
+        linear-gradient(to bottom, fade-out(map-get($colors, dark-blue), 0.5), fade-out(map-get($colors, dark-blue), 0.5)),
+        url("../../assets/images/bg_gift.jpg");
+    background-size:100% 100%, cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    @media #{mq(ie)} {
+        height:100vh;   // Necessary fix due to IE's behavior of flexbox
+    }
+
+    &-title,
+    &-subtitle {
+        flex:0 1 100%;
+
+        width:100%;
+    }
+
+    &-title {
+        margin-bottom:10px;
+
+        font-weight:700;
+        font-size:3rem;
+        text-transform:uppercase;
+    }
+
+    &-subtitle {
+        margin-bottom:30px;
+
+        font-size:1.5rem;
+    }
+
+    &-btn {
+        
+    }
+}

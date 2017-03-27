@@ -1,0 +1,80 @@
+// Amount step
+#{$baseClass}__amount {
+    // Flex container
+    &-flex {
+        flex-wrap:wrap;
+
+        // XMedium+: Place input and buttons side-by-side
+        @media #{mq(min-xmedium)} {
+            flex-wrap:nowrap;
+            justify-content:space-between;
+        }
+    }
+
+    // Main input and preset amount containers
+    &-main,
+    &-preset {
+        flex:0 1 100%;
+    }
+
+    &-main {
+        // Medium-: Set a bottom margin to separate input box and buttons 
+        @media #{mq(max-medium)} {
+            margin-bottom:10px;
+        }
+    }
+
+    &-field {
+        position:relative;
+
+        // Input box
+        &-input {
+            padding-left:70px;
+
+            margin-bottom:0;
+        }
+
+         // Currency prefix
+        &-prefix {
+            position:absolute;
+            left:1px;
+            top:1px;
+
+            display:block;
+
+            width:60px;
+            height:60px;
+
+            color:map-get($colors, white);
+            font-size:1.5rem;
+            font-weight:bold;
+            text-align:center;
+            line-height:59px;
+
+            background-color:map-get($colors, light-blue);
+        }
+
+        // A note
+        &-note {
+            font-size:0.8rem;
+        }
+    }
+
+    // Preset amount buttons
+    &-preset {
+        // XMedium+: Set more space on the left
+        @media #{mq(min-xmedium)} {
+            margin-left:30px;
+        }
+
+        &-btn {
+            width:calc(100% / 3 - 5px);
+            margin-bottom:5px;
+            margin-right:5px;
+
+            @media #{mq(ie)} {
+                width:calc(33% - 5px);
+            }
+        }
+    }
+}

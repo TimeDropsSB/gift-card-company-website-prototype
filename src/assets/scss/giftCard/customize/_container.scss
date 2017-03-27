@@ -1,0 +1,14 @@
+#{$baseClass} {
+    display:block;
+
+    &__title {
+        color:map-get($colors, white);
+        background-color:map-get($colors, alt-blue);
+
+        padding:15px 20px;
+
+        font-weight:600;
+        font-size:1.618rem;
+        text-align:center;
+    }
+}

@@ -1,0 +1,42 @@
+// Recipient step
+#{$baseClass}__recipient {
+    &-flex {
+        flex-wrap:wrap;
+        justify-content:space-between;
+    }
+
+    // Block wrapper
+    &-block {
+        width:100%;
+        margin-bottom:10px; 
+
+        // Medium+: Place input boxes next to each other
+        @media #{mq(min-xmedium)} {
+            width:calc(100% / 3 - 10px);
+            margin-right:10px;
+
+            @media #{mq(ie)} {
+                width:calc(33% - 10px);
+            }
+        }
+
+        // Textarea takes the entire width
+        &--textarea {
+            width:100%;
+        }
+    }
+
+    // Field
+    &-field {
+        &--textarea {
+            width:100%;
+        }
+
+        &-input {
+            &--textarea {
+                padding-top:20px;
+                height:200px;
+            }
+        }
+    }
+}

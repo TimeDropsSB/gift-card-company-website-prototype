@@ -1,0 +1,9 @@
+$colors: (
+    black: #333,
+    white: #FFFFFF,
+    gray: #666,
+    blue: #40A0C0,
+    light-blue: lighten(#40A0C0, 20%),
+    dark-blue: darken(#40A0C0, 20%),
+    alt-blue: desaturate(darken(#40A0C0, 10%), 20%)
+);

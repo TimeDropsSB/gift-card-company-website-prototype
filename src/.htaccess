@@ -1,0 +1,12 @@
+# For clean URLs, the URLs need to be configured
+RewriteEngine on
+
+# For all files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+# Take no action; also do not execute any other RewriteRules
+RewriteRule ^ - [L]
+
+# Rewrite everything else to index.html to allow HTML5 state links
+# This removes the 404 error when inputting directly to URL bar
+RewriteRule ^ index.html [L]

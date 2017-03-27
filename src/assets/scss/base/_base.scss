@@ -1,0 +1,14 @@
+.button {
+    width:100%;
+    max-width:250px;
+    padding:20px;
+
+    // Webpack's style-loader has an order loading issue
+    // This overwrites normalize.css's font-family
+    font-family:map-get($fonts, open-sans);
+    font-weight:600;
+
+    &--noMarginBottom {
+        margin-bottom:0;
+    }
+}

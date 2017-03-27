@@ -1,0 +1,27 @@
+html {
+    font-size:map-get($fonts, xsmall-size);
+
+    @media #{mq(min-small)} {
+        font-size:map-get($fonts, small-size);
+    }
+
+    @media #{mq(min-medium)} {
+        font-size:map-get($fonts, base-size);
+    }
+}
+
+body {
+    color:map-get($colors, black);
+}
+
+h1 {
+    margin-bottom:10px;
+
+    font-weight:600;
+}
+
+legend {
+    display:block;
+
+    width:100%;
+}
